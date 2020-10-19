@@ -1,0 +1,77 @@
+<link rel="stylesheet" type="text/css" href="createcibochain.css">
+<div class="containerRest" ng-cloak>
+    <!-- <div class="topnav">
+        <a class="active" href="#createcibochain">Create New Product</a>
+        <a href="#listcibochain">List Products</a>
+        <a href="#mixcibochain" ng-click="queryAllcibochain()">Make Combo</a>
+    </div> -->
+    
+    <ul>
+        <li><a class = "active" href="#createcibochain">Create Product</a></li>
+        <li><a href="#listcibochain">List Products</a></li>
+        <li><a href="#mixcibochain">Create Combo</a></li>
+        <li><a href="#cibochainNotification">Notification</a></li>
+        <a><li><button ng-click="logOut()">Logout </button></a>
+    </ul>
+    <div class="main" ng-cloak>
+        <h2 style="color: black; margin-top: 30px;margin-bottom: 20px;">Create Product Record</h2>
+        <form class="form" name="createForm" novalidate autocomplete="off">
+            Enter Product ID: <br>
+            <input type="text" placeholder="Ex: 16" name="cibochain_id" ng-model="cibochain.id" ng-pattern="/^[0-9]+$/" required><br>
+            <span ng-messages="createForm.cibochain_id.$error" ng-show="createForm.cibochain_id.$touched">
+                <p ng-message="pattern">Not a number!</p>
+                <p ng-message="required">ID is required!</p>
+            </span>
+            Enter Product Name:<br>
+            <input type="text" placeholder="Ex: Nutella Chocolate" name="cibochain_name" ng-model="cibochain.name" ng-minlength="3" ng-maxlength="15" required><br>
+            <span ng-messages="createForm.cibochain_name.$error" ng-show="createForm.cibochain_name.$touched">
+                <p ng-message="minlength">Name is too short!</p>
+                <p ng-message="maxlength">Name is too long!</p>
+                <p ng-message="required">Name is required!</p>
+            </span>
+            Choose Product:<br>
+            <select name="cibochain_animal" ng-model="cibochain.animal" required>
+                <option value="">
+                <option value="Sweets">Sweets
+                <option value="Drinks">Drinks
+                <option value="Spreads">Spreads
+            </select><br>
+            <span ng-messages="createForm.cibochain_animal.$error" ng-show="createForm.cibochain_animal.$touched">
+                <p ng-message="required">Product is required!</p>
+            </span>
+            Enter Location:<br>
+            <input type="text" placeholder="Ex: Chennai" name="cibochain_location" ng-model="cibochain.location" ng-pattern="/^[a-zA-Z]+$/" required><br>
+            <span ng-messages="createForm.cibochain_location.$error" ng-show="createForm.cibochain_location.$touched">
+                <p ng-message="required">Location is required!</p>
+                <p ng-message="pattern">Location name is not valid!</p>
+            </span>
+            Enter Quantity In Grams:<br>
+            <input type="text" placeholder="Ex: 900" name="cibochain_quantity" ng-model="cibochain.quantity" ng-pattern="/^[0-9]+$/" required><br>
+            <span ng-messages="createForm.cibochain_quantity.$error" ng-show="createForm.cibochain_quantity.$touched">
+                <p ng-message="required">Quantity is required!</p>
+                <p ng-message="pattern">Quantity is not a number!</p>
+            </span>
+            Expires in:
+            <input type="text" placeholder="Ex: 6" name="cibochain_number" ng-model="cibochain.number" ng-pattern="/^[0-9]+$/" required><br>
+            <span ng-messages="createForm.cibochain_number.$error" ng-show="createForm.cibochain_number.$touched">
+                <p ng-message="required">Unit number is required!</p>
+                <p ng-message="pattern">Unit is not a number!</p>
+            </span>
+            <select name="cibochain_unit" ng-model="cibochain.unit" required>
+                <option value="">
+                <option value="min">minutes
+                <option value="hour">hours
+                <option value="days">days
+                <option value="month">months
+            </select><br>
+            <span ng-messages="createForm.cibochain_unit.$error" ng-show="createForm.cibochain_unit.$touched">
+                <p ng-message="required">Unit is required!</p>
+            </span>
+            <input id="createSubmit" class="create" type="submit" value="Create" ng-disabled="createForm.$invalid" ng-click="recordcibochain()">
+        </form>
+
+        
+        <h3 style="margin-top: 20px;">{{poruka}}</h3>
+    </div>
+</div>
+<h3 style="margin-top: 20px;">{{poruka}}</h3>

@@ -1,0 +1,44 @@
+<link rel="stylesheet" type="text/css" href="cibochainNotification.css">
+<div class="containerRest">
+   <!-- <div class="menu">
+        <a href="#createcibochain">Create Product</a>
+        <a href="#listcibochain">List Product</a>
+        <a href="#mixcibochain">Make Combo</a>
+    </div> -->
+    <ul>
+        <li><a href="#createcibochain">Create Product</a></li>
+        <li><a href="#listcibochain">List Products</a></li>
+        <li><a href="#mixcibochain">Create Combo</a></li>
+        <li><a class = "active" href="#cibochainNotification">Notification</a></li>
+        <a><li><button ng-click="logOut()">Logout </button></a>
+    </ul>
+    <div class="main">
+        <h2 style="margin-top: 30px; margin-bottom: 30px;color: black;">Notification list</h2>
+        <!-- <button class="logout" ng-click="logOut()">Log Out</button> -->
+        <button class="query" ng-click="queryAllNotifications()">Show Notifications</button>
+        <table id="all_cibochain" class="table" border="1">
+            <thead>
+                <th>Request</th>
+                <th> Accept </th>
+                <th>reject</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="request in all_requests track by $index">
+                    <td class="textData"> {{request}} </td>
+                    <td><button class="approve" ng-click="approveRequest($index)">approve</button></td>
+                    <td><button class="reject" ng-click="rejectRequest($index)"> reject</button></td>
+                </tr>
+            </tbody>
+        </table><br>
+        <table id="all_cibochain" class="table" border="1">
+            <thead>
+                <th>Response</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="response in all_responses track by $index">
+                    <td class="textData"> {{response}} </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

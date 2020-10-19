@@ -1,0 +1,51 @@
+<link rel="stylesheet" type="text/css" href="listcibochain.css">
+<div class="containerRest" ng-cloak>
+<!--	<div class="menu">
+		<a href="#createcibochain">Create Product</a>
+		<a class="active" href="#listcibochain">List Product</a>
+		<a href="#mixcibochain">Make Combo</a>
+	</div> -->
+	<ul>
+        <li><a href="#createcibochain">Create Product</a></li>
+        <li><a class = "active" href="#listcibochain">List Products</a></li>
+        <li><a href="#mixcibochain">Create Combo</a></li>
+        <li><a href="#cibochainNotification">Notification</a></li>
+        <a><li><button ng-click="logOut()">Logout </button></a>
+    </ul>
+	<div class="main" ng-cloak>
+		<h2 style="margin-top: 30px; color: black;margin-bottom: 30px;">Product list</h2>
+		<!--<button class="query" ng-click="queryAllcibochain()">Show All cibochain</button>-->
+		<!-- <div class="bell" ng-cloak>
+            <a href="#cibochainNotification">
+                <button class="notification" ng-cloak>
+                    <img class="zvono" src="image/notifikacijaIcon.png" alt="notification">
+                </button>
+            </a>
+        </div>
+        <button class="logout" ng-click="logOut()">Log Out</button> -->
+		<table id="all_cibochain" class="table" border="1">
+			<thead>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Owner</th>
+				<th>Type</th>
+				<th>Location</th>
+				<th>Quantity</th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="cibochain in all_cibochain">
+					<td>{{cibochain.Key}}</td>
+					<td ng-click="getDetails($index)"><a href="#details">{{cibochain.name}}</a></td>
+					<td>{{cibochain.owner}}</td>
+					<td>{{cibochain.animal}}</td>
+					<td>{{cibochain.location}}</td>
+					<td>{{cibochain.quantity}}</td>
+					<!--
+					<td><button class="delete" ng-click="deletecibochain($index)"><img src="https://cdn2.iconfinder.com/data/icons/cleaning-19/30/30x30-10-512.png"
+							 alt="delete"></button></td>
+					-->
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

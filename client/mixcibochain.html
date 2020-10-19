@@ -1,0 +1,59 @@
+<link rel="stylesheet" type="text/css" href="mixcibochain.css">
+<div class="containerRest" ng-cloak>
+  <!--  <div class="menu">
+        <a href="#createcibochain">Create Product</a>
+        <a href="#listcibochain">List Product</a>
+        <a class="active" href="#mixcibochain">Make Combo</a>
+    </div> -->
+    <ul>
+        <li><a href="#createcibochain">Create Product</a></li>
+        <li><a href="#listcibochain">List Products</a></li>
+        <li><a class = "active" href="#mixcibochain">Create Combo</a></li>
+        <li><a href="#cibochainNotification">Notification</a></li>
+        <a><li><button ng-click="logOut()">Logout </button></a>
+    </ul>
+    <div class="main" ng-cloak>
+        <h2 style="color: black; margin-top: 30px;margin-bottom: 20px;">Make Combo</h2>
+        <form class="form" name="mixForm" novalidate autocomplete="off">
+            Choose Product 1: <br>
+            <select name="first_cibochain" ng-model="first_cibochain" required>
+            	<option value="">
+                <option ng-repeat="cibochain in all_cibochain" ng-click="getcibochain1($index)"> {{ cibochain.name }}
+            </select><br>
+            <span ng-messages="mixForm.first_cibochain.$error" ng-show="mixForm.first_cibochain.$touched">
+                <p ng-message="required">Product is required!</p>
+            </span>
+            Amount(%) of Product 1: <br>
+            <input type="text" placeholder="Ex: 40" name="first_percentage" ng-model="cibochain.percentage1" ng-pattern="/^[1-9][0-9]?$|^100$/" required><br>
+            <span ng-messages="mixForm.first_percentage.$error" ng-show="mixForm.first_percentage.$touched">
+                <p ng-message="required">Quantity is required!</p>
+                <p ng-message="pattern">Enter a number between 1 and 100!</p>
+            </span>
+            Choose Product 2:<br>
+            <select name="second_cibochain" ng-model="drugi_cibochain" required>
+            	<option value="">
+                <option ng-repeat="cibochain in all_cibochain" ng-click="getcibochain2($index)"> {{ cibochain.name }}
+            </select><br>
+            <span ng-messages="mixForm.second_cibochain.$error" ng-show="mixForm.second_cibochain.$touched">
+                <p ng-message="required">Product is required!</p>
+            </span>
+            Amount(%) of Product 2: <br>
+            <input type="text" placeholder="Ex: 60" name="second_percentage" ng-model="cibochain.percentage2" ng-pattern="/^[1-9][0-9]?$|^100$/" required><br>
+            <span ng-messages="mixForm.second_percentage.$error" ng-show="mixForm.second_percentage.$touched">
+                <p ng-message="required">Quan is required!</p>
+                <p ng-message="pattern">Enter a number between 1 and 100!</p>
+            </span>
+            <input class="mix" type="submit" value="Mix" ng-disabled="mixForm.$invalid" ng-click="mixcibochain()">
+        </form>
+        <!-- <div class="bell" ng-cloak>
+            <a href="#cibochainNotification">
+                <button class="notification" ng-cloak>
+                    <img src="image/notifikacijaIcon.png" alt="notification">
+                </button>
+            </a>
+        </div>
+        <button class="logout" ng-click="logOut()">Log Out</button> -->
+
+        <h3 style="margin-top: 50px;">{{poruka}}</h3>
+     </div>
+</div>

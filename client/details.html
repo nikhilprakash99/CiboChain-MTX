@@ -1,0 +1,34 @@
+<link rel="stylesheet" type="text/css" href="details.css">
+<div class="containerRest">
+    <ul>
+        <li><a href="#createcibochain">Create Product</a></li>
+        <li><a href="#listcibochain">List Products</a></li>
+        <li><a href="#mixcibochain">Create Combo</a></li>
+        <li><a class = "active" href="#cibochainNotification">Notification</a></li>
+        <a><li><button ng-click="logOut()">Logout </button></a>
+    </ul>
+            
+    <div class="main">
+        <h2 style="color: black; margin-top: 30px;margin-bottom: 20px;">Product Details</h2>
+        <div class="details">
+        	<p><span style= color:black>ID:</span> {{myreturnedData.Key}}</p>
+        	<p><span style= color:black>Name:</span> {{myreturnedData.name}}</p>
+        	<p><span style= color:black>Owner:</span> {{myreturnedData.owner}}</p>
+        	<p><span style= color:black>Type:</span> {{myreturnedData.animal}}</p>
+        	<p><span style= color:black>Location:</span> {{myreturnedData.location}}</p>
+        	<p><span style= color:black>Quantity:</span> {{myreturnedData.quantity}}</p>
+            <p><span style= color:black>Production Date:</span> {{myreturnedData.production_date}}</p>
+            <p><span style= color:black>Expiration Date:</span> {{myreturnedData.expiration_date}}</p> 	
+        </div>
+        <h3>If you want to sell <span class="detailsSpan">{{myreturnedData.name}}</span> choose the name of the new owner.</h3><br>
+        New Owner: 
+        <select ng-model="owner.name">
+            <option value="">
+            <option ng-repeat="user in all_users"> {{ user }}
+        </select><br>
+        <button class="sell" ng-click="changeOwner()">Sell Product</button>
+    </div>
+    </div>
+
+    <h3 style="margin-top: 30px;"> {{poruka}} </h3>
+</div>
